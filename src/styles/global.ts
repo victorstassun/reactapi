@@ -7,12 +7,12 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    color: white;
+    color: rgb(255, 255, 255);
   }
   
   body {
     width: 100vw;
-    background: rgb(201, 201, 201, 0.35);
+    background: rgb(26, 26, 26, 0.35);
     -webkit-font-smoothing: antialiased;
   }
   

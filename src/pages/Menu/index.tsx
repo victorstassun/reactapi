@@ -14,7 +14,7 @@ const Menu: React.FC = () => {
                 <Search placeholder="Insira o CNPJ desejado!" />
             </Navbar>
             <Intro>
-                <Tittle><h1>Titulo do Projeto</h1></Tittle>
+                <Tittle><h1>CNPJ Tracker</h1></Tittle>
                 <Desc><h2>API para pesquisa de CNPJ´S!</h2></Desc>
             </Intro>
         </Banner>
