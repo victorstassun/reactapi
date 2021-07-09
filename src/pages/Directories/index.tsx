@@ -21,8 +21,9 @@ interface Types {
 const Repositories: React.FC = () => {
 
     const [newPoke, setNewPoke] = useState('');
-    const [Pokemons, setPokemons] = useState<Pokemons[]>([]);
-    const [Types, setTypes] = useState<Types[]>([]);
+    const [pokemons, setPokemons] = useState<Pokemons[]>([]);
+    const [pokemonsStatic, setPokemonsStatic] = useState<Pokemons[]>([]);
+    const [types, setTypes] = useState<Types[]>([]);
 
     async function handleAddPokemons(event: FormEvent<HTMLFormElement>): Promise<void> {
         event.preventDefault();
@@ -31,10 +32,9 @@ const Repositories: React.FC = () => {
         const pokemon = response.data;
 
         console.log(pokemon.sprites['front_default']);
-        setPokemons([...Pokemons, pokemon]);
+        setPokemons([pokemon]);
         setTypes(pokemon.types);
     }
-    
 
     return (
         <>
@@ -44,13 +44,14 @@ const Repositories: React.FC = () => {
                 <a href="repositories">Pokemóns</a>
             </Navigate>
             <Form onSubmit={handleAddPokemons}>
-                <Search value={newPoke} onChange={e => setNewPoke(e.target.value)} placeholder="Digite o nome do seu Pokemón!" />
+                <Search value={newPoke} onChange={e => setNewPoke(e.target.value)} placeholder="Digite o nome do seu Pokemón!" required />
                 <button type="submit" />
             </Form>
         </Navbar>
         <ContentGrid>
             <DirectoriesGrid>
-            {Pokemons.map(pokemon => (
+            {pokemons.length > 0 ? 
+            pokemons.map(pokemon => (
                 <ContentContainer>
                     <>
                         <img src={pokemon.sprites['front_default']}></img>
@@ -60,7 +61,17 @@ const Repositories: React.FC = () => {
                         </Info>
                     </>
                 </ContentContainer>
-            ))}
+            )) :
+                <ContentContainer>
+                    <>
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"></img>
+                        <Info>
+                            <p>Nome: <a>bulbasaur</a></p>
+                            <p>Tipo: <a>grass / poison</a></p>
+                        </Info>
+                    </>
+                </ContentContainer>
+            }  
             </DirectoriesGrid>
         </ContentGrid>
         </>

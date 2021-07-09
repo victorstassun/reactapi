@@ -99,6 +99,7 @@ export const DirectoriesGrid = styled.div`
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow: hidden;
 `;
 
 export const Navigate = styled.div`

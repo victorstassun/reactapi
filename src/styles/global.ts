@@ -13,7 +13,7 @@ export default createGlobalStyle`
   body {
     width: 100vw;
     height: 100vh;
-    background: rgb(255, 255, 255);
+    background: rgb(235, 235, 235);
     -webkit-font-smoothing: antialiased;
     overflow-y: hidden;
   }

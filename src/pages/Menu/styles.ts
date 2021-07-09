@@ -92,10 +92,6 @@ export const Tittle = styled.div`
     h1{ 
         font-weight: bolder;
         font-size: 8vh;
-
-        &:hover {
-            font-size: 10vh;
-        }
     }
 
 `;
@@ -125,10 +121,6 @@ export const Desc = styled.div`
         color: #c4c4c4;
         font-weight: 100;
         font-size: 2.5vh;
-
-        &:hover {
-            font-size: 2.75vh;
-        }
     }
 `;
 
@@ -188,8 +180,20 @@ export const CNPJSearcher = styled.div`
 
         h2 {
             color: #000000;
-            font-size: 5em;
-            margin-top: -2.6vh;
+            font-size: 1.4em;
+            margin-top: 4vh;
+            font-weight: bolder;
+        }
+
+        &:hover {
+            width: 14vh;
+            height: 14vh;
+            border-radius: 7vh;
+
+            h2 {
+                font-size: 1.8em;
+                margin-top: 4.8vh;
+            }
         }
     }
 `;

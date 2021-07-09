@@ -1,7 +1,6 @@
 import React from 'react';
-import { Intro, Navigate, Banner, Navbar, Search, Tittle, Desc
-    , ContainerSearch, SignedsCNPJ, CNPJSearcher, PokeLine, Circle,
-    Form } from './styles';
+import { Intro, Navigate, Banner, Navbar, Tittle, Desc, ContainerSearch
+    , SignedsCNPJ, CNPJSearcher, PokeLine, Circle } from './styles';
 
 const Menu: React.FC = () => {
     return (
@@ -24,10 +23,12 @@ const Menu: React.FC = () => {
         <ContainerSearch>
             <SignedsCNPJ>
                 <h1>Clique na PokeBola abaixo para buscar...</h1>
-                <h3>São mais de 1000 pokemóns cadastrados!</h3>
+                <h3>São mais de 800 pokemóns cadastrados!</h3>
             </SignedsCNPJ>
             <CNPJSearcher>
-                <a href="repositories"><h2>.</h2></a>
+                <a href="repositories">
+                    <h2>o</h2>
+                </a>
             </CNPJSearcher>
         </ContainerSearch>
         </>
