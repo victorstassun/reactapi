@@ -1,6 +1,7 @@
 import React from 'react';
 import { Intro, Navigate, Banner, Navbar, Search, Tittle, Desc
-    , ContainerSearch, SignedsCNPJ, CNPJSearcher } from './styles';
+    , ContainerSearch, SignedsCNPJ, CNPJSearcher, PokeLine, Circle,
+    Form } from './styles';
 
 const Menu: React.FC = () => {
     return (
@@ -9,22 +10,24 @@ const Menu: React.FC = () => {
             <Navbar>
                 <Navigate>
                     <a href="/">Home</a>
-                    <a href="repositories">Repositórios</a>
+                    <a href="repositories">Buscar</a>
                 </Navigate>
-                <Search placeholder="Insira o CNPJ desejado!" />
             </Navbar>
             <Intro>
-                <Tittle><h1>CNPJ Tracker</h1></Tittle>
-                <Desc><h2>API para pesquisa de CNPJ´S!</h2></Desc>
+                <Tittle><h1>PokeSearcher</h1></Tittle>
+                <Desc><h2>Sua pokedéx on-line e gratuita!</h2></Desc>
             </Intro>
         </Banner>
+        <PokeLine>
+            <Circle></Circle>
+        </PokeLine>
         <ContainerSearch>
             <SignedsCNPJ>
-                <h1>48,984,820</h1>
-                <h3>CNPJ´S Cadastrados!</h3>
+                <h1>Clique na PokeBola abaixo para buscar...</h1>
+                <h3>São mais de 1000 pokemóns cadastrados!</h3>
             </SignedsCNPJ>
             <CNPJSearcher>
-                <input placeholder="Consulte!"></input>
+                <a href="repositories"><h2>.</h2></a>
             </CNPJSearcher>
         </ContainerSearch>
         </>

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import BannerImage from '../../assets/Banner.png';
+import Lupa from '../../assets/lupa.svg';
 
 export const Search = styled.input`
     float: right;
@@ -58,8 +60,8 @@ export const Navigate = styled.div`
 export const Banner = styled.div`
     width: 100%;
     height: 50vh;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4eF0Ut1JeR4K1pwmyVMTI69LOlNA4JAQOUw&usqp=CAU');
-    background-size: no-repeat, repeat;
+    background-image: url(${BannerImage});
+    background-size: cover;
 `;
 
 export const Navbar = styled.nav`
@@ -85,8 +87,7 @@ export const Tittle = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 8vh;
-    text-shadow: rgba(255, 255, 255, 0.1) 0.8vh 1.4vh;
-    animation: 0.2s;
+    text-shadow: rgba(255, 255, 255, 0.3) 0.8vh 1.4vh;
     
     h1{ 
         font-weight: bolder;
@@ -99,13 +100,26 @@ export const Tittle = styled.div`
 
 `;
 
+export const Form = styled.form`
+    a {
+        background: transparent;
+        border: none !important;
+        background-image: url('${Lupa}');
+        background-size: cover;
+        width: 3vh;
+        height: 3vh;
+        position: absolute;
+        margin: 2.5vh 0 0 38vw;
+    }
+`;
+
 export const Desc = styled.div`
     width: 100%;
     height: 8vh;
     float: left;
     display: flex;
     justify-content: center;
-    text-shadow: rgba(255, 255, 255, 0.1) 0.8vh 1.4vh;
+    text-shadow: rgba(255, 255, 255, 0.15) 0.8vh 1.4vh;
     
     h2 {
         color: #c4c4c4;
@@ -120,7 +134,7 @@ export const Desc = styled.div`
 
 export const ContainerSearch = styled.div`
     width: 100%;
-    heigth: 50vh;
+    heigth: 45vh;
     display: flex;
     flex-direction: column;
 
@@ -159,15 +173,48 @@ export const CNPJSearcher = styled.div`
     justify-content: center;
     margin-top: 4vh;
 
-    input {
-        width: 24vw;
-        height: 8vh;
+    a {
+        width: 12vh;
+        height: 12vh;
         font-size: 2vh;
-        border-radius: 4vh;
-        background: rgba(255, 255, 255, 0.65);
+        border-radius: 6vh;
+        background-image: linear-gradient( to bottom, red 45%, grey 45%, grey 55%, white 55%);
         border: 0.2vh solid black;
         display: flex;
         text-align: center;
         color: black;
+        justify-content: center;
+        text-decoration: none;
+
+        h2 {
+            color: #000000;
+            font-size: 5em;
+            margin-top: -2.6vh;
+        }
     }
 `;
+
+export const PokeLine = styled.div`
+    width: 100%;
+    height: 5vh;
+    background-color: rgb(101, 101, 101);
+    display: flex;
+    justify-content: center;
+`;
+
+export const Circle = styled.div`
+    width: 8vh;
+    height: 8vh;
+    border-radius: 4vh;
+    background-color: rgb(255, 255, 255);
+    margin-top: -2vh;
+    box-shadow: 0 0 0 2vh rgb(101, 101, 101);
+
+    &:hover {
+        width: 10vh;
+        height: 10vh;
+        border-radius: 5vh;
+        margin-top: -3vh;
+    }
+`;
+

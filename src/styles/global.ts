@@ -12,8 +12,10 @@ export default createGlobalStyle`
   
   body {
     width: 100vw;
-    background: rgb(26, 26, 26, 0.35);
+    height: 100vh;
+    background: rgb(255, 255, 255);
     -webkit-font-smoothing: antialiased;
+    overflow-y: hidden;
   }
   
   body, input, button {
