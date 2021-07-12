@@ -21,6 +21,7 @@ export const Form = styled.form`
         height: 3vh;
         position: absolute;
         margin: 2.5vh 0 0 38vw;
+        text-transform: lowercase;
     }
 `;
 

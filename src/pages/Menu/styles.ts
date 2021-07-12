@@ -213,12 +213,5 @@ export const Circle = styled.div`
     background-color: rgb(255, 255, 255);
     margin-top: -2vh;
     box-shadow: 0 0 0 2vh rgb(101, 101, 101);
-
-    &:hover {
-        width: 10vh;
-        height: 10vh;
-        border-radius: 5vh;
-        margin-top: -3vh;
-    }
 `;
 
