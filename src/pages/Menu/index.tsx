@@ -23,7 +23,7 @@ const Menu: React.FC = () => {
         <ContainerSearch>
             <SignedsCNPJ>
                 <h1>Clique na PokeBola abaixo para buscar...</h1>
-                <h3>São mais de 800 pokemóns cadastrados!</h3>
+                <h3>São mais de 800 pokemóns cadastrados!!!</h3>
             </SignedsCNPJ>
             <CNPJSearcher>
                 <a href="repositories">
