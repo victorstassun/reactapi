@@ -1,8 +1,9 @@
 import React, { FormEvent, useState } from 'react';
 import { Navbar, Navigate, ContentGrid, DirectoriesGrid, ContentContainer
-    , Form, Info } from './styles';
+    , Form, Info, PokeTypes, Error } from './styles';
 import { Search } from '../Menu/styles';
 import api from '../../services/api';
+import { Colors } from './colors';
 
 interface Pokemons {
     name: string;
@@ -24,9 +25,17 @@ const Repositories: React.FC = () => {
     const [pokemons, setPokemons] = useState<Pokemons[]>([]);
     const [pokemonsStatic, setPokemonsStatic] = useState<Pokemons[]>([]);
     const [types, setTypes] = useState<Types[]>([]);
+    const [inputError, setInputError] = useState('');
 
     async function handleAddPokemons(event: FormEvent<HTMLFormElement>): Promise<void> {
         event.preventDefault();
+
+        if (!newPoke) {
+            setInputError('Informe um pokemón para a pesquisa!')
+            return;
+        }
+
+        try {
 
         const response = await api.get<Pokemons>(`pokemon/${newPoke}`);
         const pokemon = response.data;
@@ -34,7 +43,19 @@ const Repositories: React.FC = () => {
         console.log(pokemon.sprites['front_default']);
         setPokemons([pokemon]);
         setTypes(pokemon.types);
+
+        } catch(err) {
+            setInputError('Pokemón não encontrado ou não existe!')
+        }
     }
+
+    function setTypeColor(type: Types) {
+        for (var i = 0; i < Colors.length; i ++) {
+          if (type.type.name.toUpperCase() === Colors[i].name) {
+            return <div style={{background: Colors[i].color}}>{type.type.name}</div>;
+          }
+        };
+      }
 
     return (
         <>
@@ -43,10 +64,11 @@ const Repositories: React.FC = () => {
                 <a href="/">Home</a>
                 <a href="repositories">Pokemóns</a>
             </Navigate>
-            <Form onSubmit={handleAddPokemons}>
-                <Search value={newPoke} onChange={e => setNewPoke(e.target.value)} placeholder="Digite o nome do seu Pokemón!" required />
+            <Form hasError={Boolean(inputError)} onSubmit={handleAddPokemons}>
+                <Search value={newPoke} onChange={e => setNewPoke(e.target.value)} placeholder="Digite o nome do seu Pokemón!" />
                 <button type="submit" />
             </Form>
+            {inputError && <Error>{inputError}</Error>}
         </Navbar>
         <ContentGrid>
             <DirectoriesGrid>
@@ -57,7 +79,11 @@ const Repositories: React.FC = () => {
                         <img src={pokemon.sprites['front_default']}></img>
                         <Info>
                             <p>Nome: <a>{pokemon.name}</a></p>
-                            <p>Tipo: <a>{pokemon.types[0].type.name} / {pokemon.types[1]?.type.name}</a></p>
+                            <PokeTypes>
+                                {pokemon.types.map(type => (
+                                    setTypeColor(type)
+                                ))}
+                            </PokeTypes>
                         </Info>
                     </>
                 </ContentContainer>

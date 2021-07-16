@@ -1,8 +1,23 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import ultra from '../../assets/ultra.svg';
 import PokeBack from '../../assets/BackgroundPoke.png';
 import Search from '../../assets/lupa.svg';
 
+interface FormProps {
+    hasError: boolean;
+}
+
+export const PokeTypes = styled.div`
+    width: 6vw;
+    height: 3vh;
+    display: flex;
+    flex-direction: row;
+`;
+
+export const Error = styled.span`
+    display: block;
+    color: #f53030;
+`;
 
 export const Navbar = styled.div`
     width: 100%;
@@ -11,7 +26,14 @@ export const Navbar = styled.div`
     background: rgb(51, 51, 51);
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<FormProps>`
+
+    input {
+    ${ props => props.hasError && css`
+    border-color: #c53030;
+    ` }
+    }   
+
     button {
         background: transparent;
         border: none !important;
